@@ -1,0 +1,40 @@
+:root {
+    /* Colors */
+    --color-bg: #000000;
+    --color-bg-page: #0A0A0A;
+    --color-text-primary: #FFFFFF;
+    --color-text-inverse: #000000;
+    --color-text-accent: #00FF00;
+    /* Animations */
+    --transition-duration: 0.2s;
+    --transition-animation: 0.4s ease-in;
+}
+
+/* base page styles */
+html {
+    scrollbar-gutter: stable;
+    scroll-behavior: smooth;
+    background-color: var(--color-bg);
+    min-height: 100vh;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    max-width: 1440px;
+    min-height: 100vh;
+    margin: 0 auto;
+    color: var(--color-text-primary);
+    background-color: var(--color-bg-page);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+}
+
+@media (max-width: 1440px) {
+    body {
+        box-shadow: none;
+    }
+}
+
+@media (max-width: 768px) {}
+
+@media (max-width: 380px) {}
