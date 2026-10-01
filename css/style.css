@@ -3,11 +3,9 @@
     --color-bg: #000000;
     --color-bg-page: #0A0A0A;
     --color-text-primary: #FFFFFF;
-    --color-text-inverse: #000000;
     --color-text-accent: #00FF00;
     /* Animations */
-    --transition-duration: 0.2s;
-    --transition-animation: 0.4s ease-in;
+    --transition-duration: 0.5s;
 }
 
 /* base page styles */
@@ -22,11 +20,94 @@ body {
     display: flex;
     flex-direction: column;
     max-width: 1440px;
-    min-height: 100vh;
+    min-height: 400px;
+    height: 100vh;
+    height: 100dvh;
     margin: 0 auto;
     color: var(--color-text-primary);
     background-color: var(--color-bg-page);
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+}
+
+/* Header styles */
+.header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.game-info-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 150px;
+}
+
+.game-info {}
+
+/* Game container styles */
+.game-container {
+    flex: 1;
+    min-height: 0;
+    display: grid;
+    grid-template-columns: repeat(var(--columns, 4), var(--card-size, 100px));
+    grid-auto-rows: var(--card-size, 100px);
+    justify-content: center;
+    align-content: center;
+    gap: 20px;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.card {
+    position: relative;
+    width: var(--card-size, 100px);
+    height: var(--card-size, 100px);
+    padding: 0;
+    border: none;
+    background: none;
+    border-radius: 10px;
+    transform-style: preserve-3d;
+    transition: transform var(--transition-duration);
+    cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .card {
+        transition: none;
+    }
+}
+
+.card-face {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
+    border-radius: 10px;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.card-front {
+    position: absolute;
+    inset: 0;
+    transform: rotateY(180deg);
+}
+
+.card.flipped,
+.card.matched {
+    transform: rotateY(180deg);
+}
+
+.card.matched .card-face {
+    opacity: 0.8;
+}
+
+/* Footer styles */
+.footer {
+    height: 100px;
 }
 
 @media (max-width: 1440px) {
