@@ -142,6 +142,22 @@ body.no-scroll {
     text-align: center;
 }
 
+.leaderboard-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.leaderboard-table th,
+.leaderboard-table td {
+    padding: 6px 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.leaderboard-table th {
+    color: var(--color-text-accent);
+}
+
 .modal-buttons {
     display: flex;
     flex-wrap: wrap;

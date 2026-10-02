@@ -8,6 +8,7 @@ class Render {
         gameContainer: "game-container",
         buttonModalNewGame: "button-modal-new-game",
         buttonModalClose: "button-modal-close",
+        buttonLeaderboardClose: "button-leaderboard-close",
     })
 
     static labels = {
@@ -22,6 +23,9 @@ class Render {
         close: "Close",
         winTitle: "You win!",
         winMoves: (value) => `Moves: ${value}`,
+        leaderboardTitle: "Leaderboard",
+        leaderboardEmpty: "No results yet",
+        leaderboardColumns: ["Place", "Moves", "Date"],
     }
 
     constructor() {
