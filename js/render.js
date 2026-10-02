@@ -6,6 +6,8 @@ class Render {
         movesContainer: "moves-container",
         matchesContainer: "matches-container",
         gameContainer: "game-container",
+        buttonModalNewGame: "button-modal-new-game",
+        buttonModalClose: "button-modal-close",
     })
 
     static labels = {
@@ -16,6 +18,10 @@ class Render {
         },
         moves: (value) => `Moves: ${value}`,
         matches: (value) => `Matches: ${value}`,
+        newGame: "New Game",
+        close: "Close",
+        winTitle: "You win!",
+        winMoves: (value) => `Moves: ${value}`,
     }
 
     constructor() {
