@@ -165,6 +165,12 @@ body.no-scroll {
     gap: 10px;
 }
 
+.header-buttons-wrapper {
+    display: flex;
+    gap: 10px;
+}
+
+.header-button,
 .modal-button {
     padding: 8px 16px;
     border: 1px solid var(--color-text-accent);
@@ -175,6 +181,8 @@ body.no-scroll {
     cursor: pointer;
 }
 
+.header-button:hover,
+.header-button:focus-visible,
 .modal-button:hover,
 .modal-button:focus-visible {
     color: var(--color-bg);
