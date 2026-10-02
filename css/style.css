@@ -88,6 +88,8 @@ body {
     border-radius: 10px;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
+    -webkit-user-drag: none;
+    user-select: none;
 }
 
 .card-front {

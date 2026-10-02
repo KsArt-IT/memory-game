@@ -54,6 +54,7 @@ class Render {
         img.className = className
         img.src = src
         img.alt = alt || ""
+        img.draggable = false
         return img
     }
 }
