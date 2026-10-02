@@ -1,3 +1,4 @@
+import { LeaderboardModal } from "./leaderboard-modal.js"
 import { Render } from "./render.js"
 
 class Interface {
@@ -16,7 +17,9 @@ class Interface {
         gameInfo: "game-info",
     }
 
-    constructor() {}
+    constructor(leaderboard) {
+        this.leaderboardModal = new LeaderboardModal(leaderboard)
+    }
 
     render() {
         const header = this.createHeader()
@@ -103,7 +106,7 @@ class Interface {
     }
 
     openLeaderboard() {
-        console.log("openLeaderboard")
+        this.leaderboardModal.open()
     }
 }
 

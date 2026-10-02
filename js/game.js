@@ -1,11 +1,14 @@
 import { Card } from "./card.js"
 import { Render } from "./render.js"
+import { WinModal } from "./win-modal.js"
 
 class Game {
     static MAX_SHUFFLE_ATTEMPTS = 100
 
-    constructor(difficulty = 8) {
+    constructor(leaderboard, difficulty = 8) {
+        this.leaderboard = leaderboard
         this.difficulty = Math.max(1, difficulty)
+        this.winModal = new WinModal({ onNewGame: () => this.startGame() })
         this.initVariables()
         this.bind()
     }
@@ -44,6 +47,7 @@ class Game {
 
     startGame() {
         if (!this.isReady) return
+        this.winModal.close()
         this.initVariables()
         this.updateStats()
         this.cards = Card.createCards(this.difficulty)
@@ -165,6 +169,8 @@ class Game {
     endGame() {
         this.stopTimer()
         this.block = true
+        this.leaderboard.add(this.moves)
+        this.winModal.open(this.moves)
     }
 
     stopTimer() {
