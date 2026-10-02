@@ -34,6 +34,7 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    gap: 10px;
     padding: 10px 0;
 }
 
@@ -41,10 +42,30 @@ body {
     display: flex;
     flex-direction: column;
     gap: 5px;
-    min-width: 150px;
+    padding: 6px 16px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.2rem;
+    border: 1px solid var(--color-text-accent);
+    border-radius: 10px;
+    background-color: var(--color-bg-page);
 }
 
-.game-info {}
+@media (max-width: 380px) {
+    .header {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .game-info-container {
+        flex-direction: row;
+        gap: 15px;
+        margin: 0 6px;
+        font-size: 1rem;
+        text-align: center;
+        border-radius: 6px;
+    }
+}
 
 /* Game container styles */
 .game-container {
