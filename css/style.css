@@ -105,6 +105,33 @@ body {
     opacity: 0.8;
 }
 
+/* Modal styles */
+body.no-scroll {
+    overflow: hidden;
+}
+
+.modal {
+    max-width: min(90vw, 420px);
+    max-height: 90vh;
+    padding: 0;
+    border: 1px solid var(--color-text-accent);
+    border-radius: 10px;
+    color: var(--color-text-primary);
+    background-color: var(--color-bg-page);
+    overflow: auto;
+}
+
+.modal::backdrop {
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
 /* Footer styles */
 .footer {
     height: 100px;
