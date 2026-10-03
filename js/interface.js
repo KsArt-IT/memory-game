@@ -102,6 +102,10 @@ class Interface {
     createFooter() {
         const footer = document.createElement(this.selectors.footer)
         footer.className = this.classes.footer
+
+        const year = Render.createElementDiv(this.classes.gameInfo, "2026", Render.selectors.year)
+        footer.appendChild(year)
+
         return footer
     }
 
