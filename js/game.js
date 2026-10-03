@@ -89,11 +89,20 @@ class Game {
         const width = this.gameContainer.clientWidth - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight)
         const height = this.gameContainer.clientHeight - parseFloat(style.paddingTop) - parseFloat(style.paddingBottom)
 
-        let best = { columns: 1, size: 0 }
-        for (let columns = 1; columns <= count; columns++) {
+        const sizeFor = (columns) => {
             const rows = Math.ceil(count / columns)
-            const size = Math.min((width - gap * (columns - 1)) / columns, (height - gap * (rows - 1)) / rows)
-            if (size > best.size) best = { columns, size }
+            return Math.min((width - gap * (columns - 1)) / columns, (height - gap * (rows - 1)) / rows)
+        }
+
+        let best = { columns: 1, size: 0 }
+        const side = Math.sqrt(count)
+        if (Number.isInteger(side)) {
+            best = { columns: side, size: sizeFor(side) }
+        } else {
+            for (let columns = 1; columns <= count; columns++) {
+                const size = sizeFor(columns)
+                if (size > best.size) best = { columns, size }
+            }
         }
 
         this.columns = best.columns
