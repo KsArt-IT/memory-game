@@ -19,11 +19,10 @@ class Modal {
         this.content = Render.createElementDiv(this.classes.content)
         dialog.appendChild(this.content)
 
-        // click on the backdrop targets the dialog itself, clicks on the content never do
         dialog.addEventListener("click", (event) => {
             if (event.target === dialog) this.close()
         })
-        // fires for any way of closing: close(), Escape, form submit
+
         dialog.addEventListener("close", () => this.handleClose())
 
         document.body.appendChild(dialog)

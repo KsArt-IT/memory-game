@@ -26,7 +26,6 @@ class Leaderboard {
         )
     }
 
-    // fewer moves first, on a tie the earlier game ranks higher
     normalize(results) {
         return results
             .sort((a, b) => a.moves - b.moves || Date.parse(a.date) - Date.parse(b.date))
@@ -36,9 +35,7 @@ class Leaderboard {
     save() {
         try {
             localStorage.setItem(Leaderboard.STORAGE_KEY, JSON.stringify(this.results))
-        } catch {
-            // storage unavailable or full: keep results in memory for this session
-        }
+        } catch {}
     }
 
     add(moves, date = new Date()) {
