@@ -16,7 +16,7 @@ class LeaderboardModal {
     }
 
     open() {
-        this.modal.open(this.createContent())
+        this.modal.open(...this.createContent())
     }
 
     close() {
@@ -25,13 +25,11 @@ class LeaderboardModal {
 
     createContent() {
         const results = this.leaderboard.getAll()
-        const fragment = document.createDocumentFragment()
-        fragment.append(
+        return [
             this.createTitle(),
             results.length ? this.createTable(results) : this.createEmptyMessage(),
             this.createButtons(),
-        )
-        return fragment
+        ]
     }
 
     createTitle() {
@@ -49,21 +47,27 @@ class LeaderboardModal {
         const table = document.createElement("table")
         table.className = this.classes.table
 
-        const head = table.createTHead().insertRow()
+        const thead = document.createElement("thead")
+        const head = document.createElement("tr")
         for (const label of Render.labels.leaderboardColumns) {
             const th = document.createElement("th")
             th.scope = "col"
             th.textContent = label
             head.appendChild(th)
         }
+        thead.appendChild(head)
 
-        const body = table.createTBody()
+        const tbody = document.createElement("tbody")
         for (const { place, moves, date } of results) {
-            const row = body.insertRow()
+            const row = document.createElement("tr")
             for (const value of [place, moves, date]) {
-                row.insertCell().textContent = value
+                const td = document.createElement("td")
+                td.textContent = value
+                row.appendChild(td)
             }
+            tbody.appendChild(row)
         }
+        table.append(thead, tbody)
         return table
     }
 
