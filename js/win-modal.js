@@ -15,7 +15,7 @@ class WinModal {
     }
 
     open(moves) {
-        this.modal.open(this.createContent(moves))
+        this.modal.open(...this.createContent(moves))
     }
 
     close() {
@@ -23,13 +23,11 @@ class WinModal {
     }
 
     createContent(moves) {
-        const fragment = document.createDocumentFragment()
-        fragment.append(
+        return [
             this.createTitle(),
             Render.createElementDiv(this.classes.text, Render.labels.winMoves(moves)),
             this.createButtons(),
-        )
-        return fragment
+        ]
     }
 
     createTitle() {
